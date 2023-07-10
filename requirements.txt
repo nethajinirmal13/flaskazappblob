@@ -1,0 +1,6 @@
+flask
+flask-wtf
+wtforms
+python-docx
+azure-storage-blob
+pdf2docx
