@@ -12,9 +12,9 @@ UPLOAD_CONTAINER = "datafiles"
 DOWNLOAD_CONTAINER = "media"
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
 
-def save_blob(file_path, container_name):
-    blob_client = blob_service_client.get_blob_client(container_name, file_path)
-    with open(file_path, "rb") as data:
+def save_blob(file_name, container_name):
+    blob_client = blob_service_client.get_blob_client(container_name, file_name)
+    with open(file_name, "rb") as data:
         blob_client.upload_blob(data)
 
 def compress_and_upload(file_path, original_filename):
@@ -31,7 +31,7 @@ def upload_file():
         filename = secure_filename(file.filename)
         file_path = os.path.join(os.getcwd(), filename)
         file.save(file_path)  # Save the file temporarily in the current directory
-        save_blob(file_path, UPLOAD_CONTAINER)
+        save_blob(filename, UPLOAD_CONTAINER)
         compress_and_upload(file_path, filename)
         os.remove(file_path)  # Remove the original file
         return redirect(url_for('download_file', filename=filename + ".zip"))
