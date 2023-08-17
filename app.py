@@ -7,7 +7,7 @@ import zipfile
 app = Flask(__name__)
 
 # Azure blob storage settings
-AZURE_CONNECTION_STRING ="DefaultEndpointsProtocol=https;AccountName=datafilwedf;AccountKey=fSKhLZCBpn1midKFfi9Cl++O9Gnyy81LmYYRtMXuhj+HpmvuD8bO4ub3dM2uTozvFvt6yHkAGCwz+AStLyh1/w==;EndpointSuffix=core.windows.net"
+AZURE_CONNECTION_STRING ="DefaultEndpointsProtocol=https;AccountName=qedef;AccountKey=p5nS3GN0RndAjTA30uEn+p8+6kXJF7Q1lUNAkqAbiyEX5D9WAQcD9yxnSTNRO79f5CAZ1C4v81Is+AStk2EFWw==;EndpointSuffix=core.windows.net"
 UPLOAD_CONTAINER = "datafiles"
 DOWNLOAD_CONTAINER = "media"
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
